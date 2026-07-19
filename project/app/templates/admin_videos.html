@@ -1,0 +1,77 @@
+
+
+
+{% extends "base.html" %}
+
+{% block title %}Manage Videos - myTemplates{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="admin-container">
+    <div class="admin-header">
+        <h1>Manage Videos</h1>
+        <a href="/admin/dashboard" class="btn btn-secondary">Back</a>
+    </div>
+    
+    <div class="admin-card" style="margin-bottom:24px;">
+        <h3>Add Video Demo</h3>
+        <form method="POST" class="admin-form">
+            <label>Title</label>
+            <input type="text" name="title" required>
+            
+            <label>YouTube URL</label>
+            <input type="url" name="video_url" placeholder="https://www.youtube.com/watch?v=..." required>
+            
+            <label>Description</label>
+            <textarea name="description" rows="4"></textarea>
+            
+            <label>Category</label>
+            <input type="text" name="category" placeholder="Tutorial, Demo, Review" value="Demo">
+            
+            <label>
+                <input type="checkbox" name="is_active" checked> Active
+            </label>
+            
+            <button type="submit" class="btn btn-primary">Add Video</button>
+        </form>
+    </div>
+    
+    <div class="admin-card">
+        <h3>All Videos</h3>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for video in videos %}
+                <tr>
+                    <td>{{ video.title }}</td>
+                    <td>{{ video.category }}</td>
+                    <td>{% if video.is_active %}Active{% else %}Inactive{% endif %}</td>
+                    <td>
+                        <a href="/admin/videos/edit/{{ video.id }}" class="btn btn-primary" style="padding:4px 12px;font-size:12px;">Edit</a>
+                        <form method="POST" action="/admin/videos/delete/{{ video.id }}" style="display:inline;">
+                            <button type="submit" class="btn btn-danger" style="padding:4px 12px;font-size:12px;" onclick="return confirm('Delete this video?')">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+

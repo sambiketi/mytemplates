@@ -1,0 +1,448 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Digital Templates - myTemplates">
+    
+    <title>{% block title %}myTemplates - Premium Digital Templates{% endblock %}</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏪</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================================
+           COLOR SYSTEM - Pink, Yellow, Black, White Only
+           ============================================================ */
+        :root {
+            --pink: #FF1493;
+            --pink-dark: #E0007A;
+            --pink-light: #FFE0F0;
+            --yellow: #FFD700;
+            --yellow-light: #FFF8E0;
+            --black: #000000;
+            --white: #FFFFFF;
+            
+            --black-10: rgba(0,0,0,0.10);
+            --black-20: rgba(0,0,0,0.20);
+            --black-40: rgba(0,0,0,0.40);
+            --black-60: rgba(0,0,0,0.60);
+            --black-80: rgba(0,0,0,0.80);
+            
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --radius: 12px;
+            --radius-sm: 6px;
+            --radius-lg: 16px;
+            
+            --shadow: 2px 2px 0px var(--black-10);
+            --shadow-hover: 4px 4px 0px var(--black-20);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html, body {
+            height: 100%;
+            font-family: var(--font);
+            background: var(--white);
+            color: var(--black);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ============================================================
+           HEADER
+           ============================================================ */
+        .header {
+            background: var(--white);
+            border-bottom: 2px solid var(--black);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--black);
+        }
+        
+        .logo-icon {
+            font-size: 28px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-text span {
+            color: var(--pink);
+        }
+        
+        .logo-tagline {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--black-60);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-left: 4px;
+        }
+        
+        /* ============================================================
+           NAVIGATION
+           ============================================================ */
+        .nav {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+        
+        .nav a {
+            color: var(--black);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .nav a:hover {
+            color: var(--pink);
+            border-bottom-color: var(--pink);
+        }
+        
+        .nav a.active {
+            color: var(--pink);
+            border-bottom-color: var(--pink);
+        }
+        
+        .nav a.admin-link {
+            color: var(--pink);
+            font-weight: 600;
+        }
+        
+        /* ============================================================
+           HAMBURGER MENU (Mobile)
+           ============================================================ */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--black);
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(4px, 4px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(4px, -4px);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-bottom: 2px solid var(--black);
+            padding: 20px;
+            z-index: 99;
+        }
+        
+        .mobile-menu.open {
+            display: block;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 12px 0;
+            color: var(--black);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            border-bottom: 1px solid var(--black-10);
+        }
+        
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-menu a:hover {
+            color: var(--pink);
+        }
+        
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 48px 0 24px;
+            margin-top: 64px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+        
+        .footer-brand .logo-text {
+            color: var(--white);
+        }
+        
+        .footer-brand .logo-text span {
+            color: var(--pink);
+        }
+        
+        .footer-brand p {
+            color: var(--black-60);
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        
+        .footer h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--white);
+        }
+        
+        .footer a {
+            color: var(--black-60);
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            padding: 4px 0;
+            transition: color 0.2s ease;
+        }
+        
+        .footer a:hover {
+            color: var(--white);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid var(--black-20);
+            padding-top: 16px;
+            font-size: 12px;
+            color: var(--black-40);
+            text-align: center;
+        }
+        
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .logo-text {
+                font-size: 20px;
+            }
+            
+            .logo-tagline {
+                display: none;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .mobile-menu {
+                display: none !important;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    <!-- ============================================================
+    HEADER
+    ============================================================ -->
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                {% if site_settings and site_settings.logo_url %}
+                <img src="{{ site_settings.logo_url }}" alt="{{ site_settings.site_name or 'myTemplates' }}" style="height:32px;width:auto;">
+                {% else %}
+                <span class="logo-icon">🏪</span>
+                <span class="logo-text">my<span>Templates</span></span>
+                {% endif %}
+                <span class="logo-tagline">{{ (site_settings and site_settings.site_tagline) or 'Premium Digital Templates' }}</span>
+            </a>
+            
+            <nav class="nav">
+                <a href="/" {% if request.endpoint == 'main.index' %}class="active"{% endif %}>Home</a>
+                <a href="/products" {% if request.endpoint == 'products.products' %}class="active"{% endif %}>Products</a>
+                <a href="/blog" {% if request.endpoint == 'blog.blog' %}class="active"{% endif %}>Blog</a>
+                <a href="/demos" {% if request.endpoint == 'demos.demos' %}class="active"{% endif %}>Demos</a>
+                <a href="/gallery" {% if request.endpoint == 'gallery.gallery' %}class="active"{% endif %}>Gallery</a>
+                <a href="/privacy" {% if request.endpoint == 'privacy.privacy' %}class="active"{% endif %}>Privacy</a>
+                {% if admin %}
+                <a href="/admin/dashboard" class="admin-link">Admin</a>
+                {% endif %}
+            </nav>
+            
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    MOBILE MENU
+    ============================================================ -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/">Home</a>
+        <a href="/products">Products</a>
+        <a href="/blog">Blog</a>
+        <a href="/demos">Demos</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/privacy">Privacy</a>
+        {% if admin %}
+        <a href="/admin/dashboard">Admin</a>
+        {% endif %}
+    </div>
+
+    <!-- ============================================================
+    MAIN CONTENT
+    ============================================================ -->
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="container" style="margin-top: 20px;">
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo" style="color: var(--white);">
+                        <span class="logo-icon">🏪</span>
+                        <span class="logo-text">my<span>Templates</span></span>
+                    </a>
+                    <p>Premium digital templates for creators and businesses.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <a href="/products">Products</a>
+                    <a href="/blog">Blog</a>
+                    <a href="/demos">Demos</a>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <a href="/privacy">Privacy Policy</a>
+                </div>
+                {% if site_settings and (site_settings.contact_email or site_settings.contact_phone) %}
+                <div>
+                    <h4>Contact</h4>
+                    {% if site_settings.contact_email %}<a href="mailto:{{ site_settings.contact_email }}">{{ site_settings.contact_email }}</a>{% endif %}
+                    {% if site_settings.contact_phone %}<a href="tel:{{ site_settings.contact_phone }}">{{ site_settings.contact_phone }}</a>{% endif %}
+                </div>
+                {% endif %}
+            </div>
+            <div class="footer-bottom">
+                {% if site_settings and site_settings.footer_text %}
+                {{ site_settings.footer_text }}
+                {% else %}
+                &copy; 2024 {{ (site_settings and site_settings.site_name) or 'myTemplates' }}. All rights reserved.
+                {% endif %}
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileMenu.classList.toggle('open');
+            });
+        }
+        
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('open');
+            });
+        });
+    </script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
+
+
+
+

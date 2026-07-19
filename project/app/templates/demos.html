@@ -1,0 +1,36 @@
+
+
+
+{% extends "base.html" %}
+
+{% block title %}Demos - myTemplates{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div style="padding: 24px 0;">
+        <h1 style="font-size: 32px; font-weight: 800;">Video Demos</h1>
+        <p style="color: var(--black-60);">See our templates in action.</p>
+    </div>
+    
+    <div class="demo-grid">
+        {% for video in videos %}
+        <div class="demo-card">
+            <div class="demo-card-video">
+                <iframe src="{{ video.embed_url }}" loading="lazy" allowfullscreen></iframe>
+            </div>
+            <div class="demo-card-body">
+                <span class="demo-card-category">{{ video.category }}</span>
+                <h3 class="demo-card-title"><a href="/demos/{{ video.slug }}">{{ video.title }}</a></h3>
+                <p class="demo-card-description">{{ (video.description or "")[:120] }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+

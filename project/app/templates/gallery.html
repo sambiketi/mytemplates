@@ -1,0 +1,30 @@
+
+
+
+{% extends "base.html" %}
+
+{% block title %}Gallery - myTemplates{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div style="padding: 24px 0;">
+        <h1 style="font-size: 32px; font-weight: 800;">Gallery</h1>
+        <p style="color: var(--black-60);">Showcase of our premium templates in use.</p>
+    </div>
+    
+    <div class="gallery-grid">
+        {% for item in gallery %}
+        <div class="gallery-item">
+            <img src="{{ item.image_url }}" alt="{{ item.title }}" loading="lazy">
+            <div class="caption">{{ item.title }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+

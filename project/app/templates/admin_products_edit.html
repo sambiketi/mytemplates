@@ -1,0 +1,52 @@
+
+
+
+{% extends "base.html" %}
+
+{% block title %}Edit Product - myTemplates{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="admin-container">
+    <div class="admin-header">
+        <h1>Edit Product</h1>
+        <a href="/admin/products" class="btn btn-secondary">Back</a>
+    </div>
+
+    <div class="admin-card">
+        <form method="POST" class="admin-form">
+            <label>Title</label>
+            <input type="text" name="title" value="{{ product.title }}" required>
+
+            <label>Description</label>
+            <textarea name="description" rows="6" required>{{ product.description }}</textarea>
+
+            <label>Price</label>
+            <input type="text" name="price" value="{{ product.price }}" required>
+
+            <label>Category</label>
+            <input type="text" name="category" value="{{ product.category }}" required>
+
+            <label>Image URL</label>
+            <input type="url" name="image_url" value="{{ product.image_url or '' }}">
+
+            <label>Gumroad Purchase Link</label>
+            <input type="url" name="action_link" value="{{ product.action_link or '' }}">
+
+            <label>
+                <input type="checkbox" name="is_active" {% if product.is_active %}checked{% endif %}> Active
+            </label>
+            <label>
+                <input type="checkbox" name="is_featured" {% if product.is_featured %}checked{% endif %}> Featured
+            </label>
+
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

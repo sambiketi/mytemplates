@@ -1,0 +1,48 @@
+
+
+
+{% extends "base.html" %}
+
+{% block title %}Site Settings - myTemplates{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="admin-container">
+    <div class="admin-header">
+        <h1>Site Settings</h1>
+        <a href="/admin/dashboard" class="btn btn-secondary">Back</a>
+    </div>
+
+    <div class="admin-card">
+        <form method="POST" class="admin-form">
+            <label>Site Name</label>
+            <input type="text" name="site_name" value="{{ settings.site_name or '' }}">
+
+            <label>Site Tagline</label>
+            <input type="text" name="site_tagline" value="{{ settings.site_tagline or '' }}">
+
+            <label>Logo URL</label>
+            <input type="url" name="logo_url" value="{{ settings.logo_url or '' }}">
+
+            <label>Favicon URL</label>
+            <input type="url" name="favicon_url" value="{{ settings.favicon_url or '' }}">
+
+            <label>Contact Email</label>
+            <input type="email" name="contact_email" value="{{ settings.contact_email or '' }}">
+
+            <label>Contact Phone</label>
+            <input type="text" name="contact_phone" value="{{ settings.contact_phone or '' }}">
+
+            <label>Footer Text</label>
+            <textarea name="footer_text" rows="3">{{ settings.footer_text or '' }}</textarea>
+
+            <button type="submit" class="btn btn-primary">Save Settings</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

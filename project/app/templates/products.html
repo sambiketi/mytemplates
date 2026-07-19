@@ -1,0 +1,60 @@
+
+
+
+{% extends "base.html" %}
+
+{% block title %}Products - myTemplates{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div style="padding: 24px 0;">
+        <h1 style="font-size: 32px; font-weight: 800;">Products</h1>
+        <p style="color: var(--black-60);">Premium digital templates for every need.</p>
+    </div>
+    
+    <!-- Category Filters -->
+    <div class="category-pills">
+        <button class="category-pill active" data-category="all">All</button>
+        <button class="category-pill" data-category="Portfolio">Portfolio</button>
+        <button class="category-pill" data-category="Landing">Landing</button>
+        <button class="category-pill" data-category="Corporate">Corporate</button>
+        <button class="category-pill" data-category="Personal">Personal</button>
+        <button class="category-pill" data-category="E-commerce">E-commerce</button>
+    </div>
+    
+    <!-- Products Grid -->
+    <div class="product-grid">
+        {% for product in products %}
+        <div class="product-card" data-category="{{ product.category }}">
+            <div class="product-card-image-wrapper">
+                {% if product.image_url %}
+                <img src="{{ product.image_url }}" alt="{{ product.title }}" class="product-card-image" loading="lazy">
+                {% else %}
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;background:var(--black-10);color:var(--black-40);font-size:14px;">
+                    No Image
+                </div>
+                {% endif %}
+            </div>
+            <div class="product-card-body">
+                <span class="product-card-category">{{ product.category }}</span>
+                <h3 class="product-card-title">{{ product.title }}</h3>
+                <p class="product-card-description">{{ product.description[:100] }}...</p>
+                <div class="product-card-rating">
+                    &#9733;&#9733;&#9733;&#9733;&#9734; <span class="count">(124)</span>
+                </div>
+                <div class="product-card-price-row">
+                    <span class="product-card-price"><span class="currency">$</span>{{ product.price }}</span>
+                    <a href="/products/{{ product.slug }}" class="btn btn-primary">View</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+

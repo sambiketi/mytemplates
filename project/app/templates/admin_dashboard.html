@@ -1,0 +1,57 @@
+
+
+
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - myTemplates{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="admin-container">
+    <div class="admin-header">
+        <h1>Dashboard</h1>
+        <a href="/admin/logout" class="btn btn-secondary">Logout</a>
+    </div>
+    
+    <div class="admin-grid">
+        <div class="admin-card">
+            <h3>Products</h3>
+            <p style="font-size:32px;font-weight:800;">{{ products_count or 0 }}</p>
+            <a href="/admin/products" class="btn btn-primary">Manage Products</a>
+        </div>
+        
+        <div class="admin-card">
+            <h3>Blog Posts</h3>
+            <p style="font-size:32px;font-weight:800;">{{ posts_count or 0 }}</p>
+            <a href="/admin/blog" class="btn btn-primary">Manage Blog</a>
+        </div>
+        
+        <div class="admin-card">
+            <h3>Video Demos</h3>
+            <p style="font-size:32px;font-weight:800;">{{ videos_count or 0 }}</p>
+            <a href="/admin/videos" class="btn btn-primary">Manage Videos</a>
+        </div>
+
+        <div class="admin-card">
+            <h3>Privacy Policy</h3>
+            <p style="color: var(--black-60); margin-bottom: 12px;">Edit your site's privacy policy content.</p>
+            <a href="/admin/privacy" class="btn btn-primary">Manage Privacy Policy</a>
+        </div>
+
+        <div class="admin-card">
+            <h3>Site Settings</h3>
+            <p style="color: var(--black-60); margin-bottom: 12px;">Logo, contact info, and footer text.</p>
+            <a href="/admin/settings" class="btn btn-primary">Manage Settings</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,574 @@
+
+
+
+/* ============================================================
+   myTemplates - Main Styles
+   Pink, Yellow, Black, White Color Scheme
+   ============================================================ */
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+    text-align: center;
+    padding: 64px 20px 48px;
+    background: var(--white);
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+}
+
+.hero h1 span {
+    color: var(--pink);
+}
+
+.hero p {
+    font-size: 18px;
+    color: var(--black-60);
+    max-width: 500px;
+    margin: 0 auto 24px;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--pink);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--pink-dark);
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(255,20,147,0.3);
+}
+
+.btn-secondary {
+    background: var(--black);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background: var(--black-80);
+    transform: scale(1.02);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--black);
+    border: 2px solid var(--black);
+}
+
+.btn-outline:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+/* ============================================================
+   CATEGORY PILLS
+   ============================================================ */
+.category-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    padding: 8px 0 24px;
+}
+
+.category-pill {
+    padding: 8px 20px;
+    border: 2px solid var(--black);
+    border-radius: 9999px;
+    background: var(--white);
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--black);
+}
+
+.category-pill:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+.category-pill.active {
+    background: var(--pink);
+    color: var(--white);
+    border-color: var(--pink);
+}
+
+/* ============================================================
+   PRODUCT GRID
+   ============================================================ */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 24px 0 48px;
+}
+
+/* ============================================================
+   PRODUCT CARD
+   ============================================================ */
+.product-card {
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow);
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.product-card-image-wrapper {
+    position: relative;
+    background: var(--black-10);
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+.product-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.product-card-body {
+    padding: 16px;
+}
+
+.product-card-category {
+    display: inline-block;
+    background: var(--pink);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    margin-bottom: 8px;
+}
+
+.product-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--black);
+}
+
+.product-card-description {
+    font-size: 14px;
+    color: var(--black-60);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.product-card-rating {
+    color: var(--yellow);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.product-card-rating .count {
+    color: var(--black-60);
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+.product-card-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid var(--black-10);
+}
+
+.product-card-price {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--black);
+}
+
+.product-card-price .currency {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black-60);
+}
+
+/* ============================================================
+   SECTION HEADERS
+   ============================================================ */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0 8px;
+    border-bottom: 2px solid var(--black);
+}
+
+.section-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.section-header a {
+    color: var(--pink);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.section-header a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================================
+   BLOG CARDS
+   ============================================================ */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 24px 0 48px;
+}
+
+.blog-card {
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow);
+}
+
+.blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.blog-card-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+    background: var(--black-10);
+}
+
+.blog-card-body {
+    padding: 16px;
+}
+
+.blog-card-date {
+    font-size: 12px;
+    color: var(--black-60);
+    font-weight: 500;
+}
+
+.blog-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 4px 0 8px;
+}
+
+.blog-card-title a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+.blog-card-title a:hover {
+    color: var(--pink);
+}
+
+.blog-card-excerpt {
+    font-size: 14px;
+    color: var(--black-60);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.blog-card-read-more {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--pink);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.blog-card-read-more:hover {
+    text-decoration: underline;
+}
+
+/* ============================================================
+   DEMO CARDS
+   ============================================================ */
+.demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    padding: 24px 0 48px;
+}
+
+.demo-card {
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow);
+}
+
+.demo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.demo-card-video {
+    aspect-ratio: 16/9;
+    background: var(--black);
+    overflow: hidden;
+}
+
+.demo-card-video iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.demo-card-body {
+    padding: 16px;
+}
+
+.demo-card-category {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    margin-bottom: 8px;
+}
+
+.demo-card-title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.demo-card-title a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+.demo-card-title a:hover {
+    color: var(--pink);
+}
+
+.demo-card-description {
+    font-size: 14px;
+    color: var(--black-60);
+    line-height: 1.5;
+    margin-top: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ============================================================
+   PRODUCT DETAIL
+   ============================================================ */
+.product-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 32px 0 48px;
+}
+
+.product-detail-image {
+    border: 2px solid var(--black);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--black-10);
+}
+
+.product-detail-image img {
+    width: 100%;
+    display: block;
+}
+
+.product-detail-info h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.product-detail-category {
+    display: inline-block;
+    background: var(--pink);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    margin: 8px 0;
+}
+
+.product-detail-price {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 16px 0;
+}
+
+.product-detail-price .currency {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--black-60);
+}
+
+.product-detail-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--black-80);
+    margin: 16px 0;
+}
+
+.product-detail-features {
+    list-style: none;
+    margin: 16px 0;
+    padding: 0;
+}
+
+.product-detail-features li {
+    padding: 6px 0;
+    font-size: 14px;
+}
+
+.product-detail-features li::before {
+    content: "✓ ";
+    color: var(--pink);
+    font-weight: 700;
+}
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+    padding: 24px 0 48px;
+}
+
+.gallery-item {
+    border: 2px solid var(--black);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--black-10);
+}
+
+.gallery-item img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-item .caption {
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    background: var(--white);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+    
+    .product-detail {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 16px;
+    }
+    
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .demo-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .category-pills {
+        gap: 6px;
+    }
+    
+    .category-pill {
+        font-size: 12px;
+        padding: 6px 14px;
+    }
+}
+
+
+
+

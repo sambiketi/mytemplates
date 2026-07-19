@@ -1,0 +1,37 @@
+
+
+
+{% extends "base.html" %}
+
+{% block title %}Blog - myTemplates{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div style="padding: 24px 0;">
+        <h1 style="font-size: 32px; font-weight: 800;">Blog</h1>
+        <p style="color: var(--black-60);">Insights, tips, and tutorials for creators.</p>
+    </div>
+    
+    <div class="blog-grid">
+        {% for post in posts %}
+        <div class="blog-card">
+            {% if post.image_url %}
+            <img src="{{ post.image_url }}" alt="{{ post.title }}" class="blog-card-image" loading="lazy">
+            {% endif %}
+            <div class="blog-card-body">
+                <span class="blog-card-date">{{ post.date_posted.strftime('%B %d, %Y') }}</span>
+                <h3 class="blog-card-title"><a href="/blog/{{ post.slug }}">{{ post.title }}</a></h3>
+                <p class="blog-card-excerpt">{{ post.content[:150]|striptags }}...</p>
+                <a href="/blog/{{ post.slug }}" class="blog-card-read-more">Read More</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+

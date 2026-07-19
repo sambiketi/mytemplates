@@ -1,0 +1,37 @@
+
+
+
+{% extends "base.html" %}
+
+{% block title %}Privacy Policy - myTemplates{% endblock %}
+
+{% block content %}
+
+<div class="container" style="max-width:800px;margin:0 auto;padding:24px 20px 48px;">
+    <h1 style="font-size:32px;font-weight:800;margin-bottom:8px;">Privacy Policy</h1>
+    <p style="color:var(--black-60);margin-bottom:24px;">Last updated: {{ date_updated or 'December 1, 2024' }}</p>
+    
+    <div style="font-size:16px;line-height:1.8;color:var(--black-80);">
+        {% if privacy_content %}
+            {{ privacy_content|safe }}
+        {% else %}
+            <p><strong>Information We Collect</strong></p>
+            <p>We collect information you provide directly, including name, email address, and communication preferences.</p>
+            
+            <p><strong>How We Use Your Information</strong></p>
+            <p>We use your information to process orders, send updates, and improve our services.</p>
+            
+            <p><strong>Data Security</strong></p>
+            <p>We implement appropriate security measures to protect your personal information.</p>
+            
+            <p><strong>Contact Us</strong></p>
+            <p>For privacy inquiries, contact us at: privacy@mytemplates.com</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+

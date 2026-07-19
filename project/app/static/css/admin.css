@@ -1,0 +1,154 @@
+
+
+
+/* ============================================================
+   myTemplates - Admin Styles
+   ============================================================ */
+
+.admin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 20px;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 2px solid var(--black);
+    margin-bottom: 24px;
+}
+
+.admin-header h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.admin-card {
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.admin-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.admin-table th {
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 2px solid var(--black);
+    font-weight: 700;
+}
+
+.admin-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--black-10);
+}
+
+.admin-table tr:hover td {
+    background: var(--pink-light);
+}
+
+.admin-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid var(--black);
+    border-radius: var(--radius-sm);
+    font-family: var(--font);
+    font-size: 14px;
+    margin-bottom: 16px;
+    background: var(--white);
+}
+
+.admin-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.admin-form .btn {
+    margin-right: 8px;
+}
+
+.btn-danger {
+    background: var(--black);
+    color: var(--white);
+}
+
+.btn-danger:hover {
+    background: var(--black-80);
+}
+
+.btn-warning {
+    background: var(--yellow);
+    color: var(--black);
+}
+
+.btn-warning:hover {
+    background: #E6C000;
+}
+
+.admin-login {
+    max-width: 400px;
+    margin: 64px auto;
+    padding: 32px;
+    border: 2px solid var(--black);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.admin-login h1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.admin-login .btn {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .admin-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-table {
+        font-size: 12px;
+    }
+    
+    .admin-table th,
+    .admin-table td {
+        padding: 6px 8px;
+    }
+}
+
+
+
+

@@ -1,0 +1,31 @@
+
+
+
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} - myTemplates{% endblock %}
+
+{% block content %}
+
+<div class="container" style="max-width:800px;margin:0 auto;padding:24px 20px 48px;">
+    <div style="padding-bottom:16px;">
+        <a href="/blog" style="color:var(--black-60);text-decoration:none;font-size:14px;">&larr; Back to Blog</a>
+    </div>
+    
+    {% if post.image_url %}
+    <img src="{{ post.image_url }}" alt="{{ post.title }}" style="width:100%;border-radius:var(--radius);border:2px solid var(--black);margin-bottom:24px;">
+    {% endif %}
+    
+    <span style="font-size:14px;color:var(--black-60);">{{ post.date_posted.strftime('%B %d, %Y') }}</span>
+    <h1 style="font-size:32px;font-weight:800;margin:8px 0 16px;">{{ post.title }}</h1>
+    
+    <div style="font-size:16px;line-height:1.8;color:var(--black-80);">
+        {{ post.rendered_content()|safe }}
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
